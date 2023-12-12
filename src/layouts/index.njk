@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Burgard&Komplizen</title>
+		<meta
+			name="description"
+			content="Die Full-Service-Agentur. B&K macht müde Medien munter."
+		/>
+
+		<link rel="stylesheet" href="/css/styles.css" />
+	</head>
+
+	<body class="overflow-x-hidden bg-black text-white font-sans">
+		<header class="flex px-2 sm:px-4 md:px-6 lg:px-10 py-4">
+			<div class="flex-grow">
+				<h1 class="text-xl uppercase">Burgard&<br />Komplizen</h1>
+				<div role="doc-subtitle" class="uppercase">
+					Die Full-Service-Agentur.
+				</div>
+			</div>
+
+			<nav class="uppercase text-end">
+				<ul>
+					<li><a href="/#home">Home</a></li>
+					<li><a href="/#arbeiten">Arbeiten</a></li>
+					<li><a href="/#komplizen">Komplizen</a></li>
+					<li><a href="/#kontakt">Kontakt</a></li>
+					<li><a href="/#impressum">Impressum</a></li>
+					<li><a href="/#datenschutz">Datenschutz</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section
+				id="intro"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 grid -z-10"
+			>
+				<hdiv
+					class="text-xxl uppercase self-end text-center text-black text-shadow-outline-white"
+					>Hallo.</hdiv
+				>
+
+				<img
+					id="coffee-cup"
+					class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-full"
+				/>
+			</section>
+
+			<section
+				id="home"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Home
+				</h2>
+
+				<div class="md:grid md:grid-cols-2">
+					<div class="flex flex-col border border-white p-2">
+						<h3 class="uppercase px-2 py-1.5 bg-white text-black">
+							Guten Tag. B&K macht müde Medien munter.
+						</h3>
+
+						<div class="p-8 my-auto">
+							<p>
+								Ein kompetentes Team mit Profis aus allen Stilrichtungen der
+								Werbung und Kommunikation. CEO und Art Director Marco Burgard
+								weiß Videospezialisten, unseren Fotografen, Programmierer,
+								unsere Texterin und alle Dienstleister wie z.B. Druckereien zu
+								bändigen. Mit insgesamt über 30 Jahren Erfahrung steht Ihnen ein
+								verlässliches Team zur Seite, dass nicht immer genau das macht,
+								was Sie sich vorstellen.
+							</p>
+							<p>
+								Die Kunst der Werbung liegt darin, Vorstellungen zu übertreffen.
+							</p>
+							<p>-</p>
+							<p>
+								Wir kleiden Ihre Außendarstellung intelligent neu ein - von
+								minimalistisch bis extravagant. Sie erwartet eine freundliche
+								und kompetente Kommunikation und Ergebnisse, die sich sehen
+								lassen können!
+							</p>
+						</div>
+					</div>
+
+					{% image "/img/marco-cutout.png", "", [620], "100vw, (min-width:976px)
+					50vw", "" %}
+				</div>
+
+				<div
+					class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-xxl uppercase text-black text-shadow-outline-white-transparent text-center"
+				>
+					Wer?
+				</div>
+			</section>
+
+			<section
+				id="arbeiten"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Arbeiten
+				</h2>
+			</section>
+
+			<section
+				id="komplizen"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Komplizen
+				</h2>
+			</section>
+
+			<section
+				id="kontakt"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Kontakt
+				</h2>
+			</section>
+
+			<section
+				id="impressum"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Impressum
+				</h2>
+			</section>
+
+			<section
+				id="datenschutz"
+				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			>
+				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+					Datenschutz
+				</h2>
+			</section>
+		</main>
+
+		<footer></footer>
+
+		<script src="/js/coffee-cup.js"></script>
+	</body>
+</html>
