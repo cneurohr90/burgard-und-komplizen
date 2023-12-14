@@ -9,6 +9,9 @@ module.exports = {
 			black: "#000000",
 			white: "#ffffff",
 		},
+		fontFamily: {
+			DEFAULT: "acumin-pro-wide",
+		},
 		fontSize: {
 			DEFAULT: "1rem",
 			md: "1.5rem",
@@ -23,5 +26,5 @@ module.exports = {
 				"-1px -1px 0 rgba(255,255,255,0.175), 1px -1px 0 rgba(255,255,255,0.175), -1px 1px 0 rgba(255,255,255,0.175), 1px 1px 0 rgba(255,255,255,0.175)",
 		},
 	},
-	plugins: [require("tailwindcss-textshadow")],
+	plugins: [require("tailwindcss-textshadow"), require("tailwind-scrollbar")],
 };
