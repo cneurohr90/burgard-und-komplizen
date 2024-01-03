@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="overflow-x-hidden scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,23 +13,104 @@
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 
-	<body class="overflow-x-hidden bg-black text-white font">
-		<header class="flex px-2 sm:px-4 md:px-6 lg:px-10 py-4">
-			<div class="flex-grow">
-				<h1 class="text-xl uppercase">Burgard&<br />Komplizen</h1>
-				<div role="doc-subtitle" class="uppercase">
+	<body 
+		class="overflow-x-hidden bg-black text-white font font-bold" 
+		x-data="{headerScrollOffset: 50, headerScrolled: false}"
+		x-init="window.pageYOffset >= 50 ? headerScrolled = true : headerScrolled = false"
+		@scroll.window="window.pageYOffset >= 50 ? headerScrolled = true : headerScrolled = false"
+		{# :class="{
+		'overflow-hidden': navOpen,
+		'overflow-scroll': !navOpen
+		}" #}
+	>
+		<header 
+			class="fixed z-10 w-full top-0 left-0 bg-black md:flex px-2 py-3" 
+		>
+			<div class="md:flex-grow">
+				<h1 class="text-md leading-[0.75] font-bold uppercase transition-all" :class="headerScrolled ? '!text-sm' : ''">Burgard&<br />Komplizen</h1>
+				<div role="doc-subtitle" class="uppercase transition-all" :class="headerScrolled ? 'opacity-0 h-0' : ''">
 					Die Full-Service-Agentur.
 				</div>
 			</div>
 
-			<nav class="uppercase text-end">
-				<ul>
-					<li><a href="/#home">Home</a></li>
-					<li><a href="/#arbeiten">Arbeiten</a></li>
-					<li><a href="/#komplizen">Komplizen</a></li>
-					<li><a href="/#kontakt">Kontakt</a></li>
-					<li><a href="/#impressum">Impressum</a></li>
-					<li><a href="/#datenschutz">Datenschutz</a></li>
+			<input
+				id="toggle-header-nav"
+				title="Menü"
+				type="checkbox"
+				class="peer/menu hidden"
+			/>
+
+			<label
+				aria-label="Menü"
+				role="button"
+				for="toggle-header-nav"
+				class="absolute top-6 right-2 md:-top-14 md:right-8 lg:right-10 transition-all block h-1 w-8 bg-white before:absolute before:top-2 before:block before:h-full before:w-full before:bg-white before:transition-all before:content-[''] after:absolute after:-top-2 after:block after:h-full after:w-full after:bg-white after:transition-all after:content-[''] peer-checked/menu:fixed peer-checked/menu:bg-transparent peer-checked/menu:before:top-0 peer-checked/menu:before:-rotate-45 peer-checked/menu:after:top-0 peer-checked/menu:after:rotate-45 cursor-pointer select-none z-40"
+				:class="headerScrolled ? 'md:!top-14' : ''" 
+			>
+				<div
+					class="absolute left-0 w-full h-8 top-[-0.875rem] cursor-pointer"
+				></div>
+    	</label>
+
+    	<nav
+      class="absolute z-30 h-screen max-w-full w-48 md:w-auto -right-48 md:right-0 px-3 md:px-6 lg:px-10 transition-all flex flex-col bg-black text-right peer-checked/menu:!right-0 uppercase"
+			:class="headerScrolled ? 'md:!w-64 md:!-right-64' : ''"
+		>
+      <div
+        class="flex-none w-full bg-black h-12 md:h-0 transition-all"
+				:class="headerScrolled ? '!h-12 md:!h-20 lg:!h-28' : ''"
+      ></div>
+      <ul
+        class="overflow-auto scrollbar-thin scrollbar-track-black scrollbar-thumb-white"
+      >
+				<li>
+					<a
+						href="/#home"
+						class="item"
+					>
+						Home
+					</a>
+				</li>
+				<li>
+					<a
+						href="/#arbeiten"
+						class="item"
+					>
+						Arbeiten
+					</a>
+				</li>
+				<li>
+					<a
+						href="/#komplizen"
+						class="item"
+					>
+						Komplizen
+					</a>
+				</li>
+				<li>
+					<a
+						href="/#kontakt"
+						class="item"
+					>
+						Kontakt
+					</a>
+				</li>
+				<li>
+					<a
+						href="/#impressum"
+						class="item"
+					>
+						Impressum
+					</a>
+				</li>
+				<li>
+					<a
+						href="/#datenschutz"
+						class="item"
+					>
+						Datenschutz
+					</a>
+				</li>
 				</ul>
 			</nav>
 		</header>
@@ -37,34 +118,36 @@
 		<main>
 			<section
 				id="intro"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 grid -z-10"
+				class="max-w-screen-lg min-h-screen mx-auto grid -z-10 px-2 pt-20 pb-8"
 			>
-				<hdiv
-					class="text-xxl uppercase self-end text-center text-black text-shadow-outline-white"
-					>Hallo.</hdiv
+				<div
+					class="text-xl lg:text-xxl uppercase self-end text-center text-black text-shadow-outline-white"
+					>Hallo.</div
 				>
 
 				<img
 					id="coffee-cup"
-					class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-full"
+					class="fixed z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-h-full"
 				/>
 			</section>
 
 			<section
 				id="home"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white"
+				class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white p-2"
 			>
-				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+				<h2 class="text-md uppercase text-black text-shadow-outline-white mb-4">
 					Home
 				</h2>
 
 				<div class="md:grid md:grid-cols-2">
-					<div class="flex flex-col border border-white p-2">
-						<h3 class="uppercase px-2 py-1.5 bg-white text-black">
+					<div class="md:flex md:flex-col md:border md:border-white md:p-2">
+						<h3 class="uppercase px-2 py-1.5 bg-white text-black mb-12">
 							Guten Tag. B&K macht müde Medien munter.
 						</h3>
 
-						<div class="px-10 py-12 my-auto">
+						{% image "/img/marco-cutout.png", "", [320, 480, 768], "100vw", "md:hidden" %}
+
+						<div class="relative -mt-44 pt-20 pb-4 bg-gradient-to-b from-transparent to-black to-[12rem] md:px-10 md:py-12 md:my-auto">
 							<p>
 								Ein kompetentes Team mit Profis aus allen Stilrichtungen der
 								Werbung und Kommunikation. CEO und Art Director Marco Burgard
@@ -87,11 +170,11 @@
 						</div>
 					</div>
 
-					{% image "/img/marco-cutout.png", "", [620], "100vw, (min-width:976px) 50vw", "" %}
+					{% image "/img/marco-cutout.png", "", [620], "50vw", "hidden md:block" %}
 				</div>
 
 				<div
-					class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-xxl uppercase text-black text-shadow-outline-white-transparent text-center"
+					class="absolute top-44 md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 text-[5.625rem] uppercase text-black text-shadow-outline-white-transparent text-center"
 				>
 					Wer?
 				</div>
@@ -99,36 +182,140 @@
 
 			<section
 				id="arbeiten"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+				class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white bg-black p-2"
 			>
-				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+				<h2 class="text-md uppercase text-black text-shadow-outline-white mb-4">
 					Arbeiten
 				</h2>
+
+				<ul class="grid gap-2 md:gap-4 lg:gap-6 md:grid-cols-2">
+					{% for work in works %}
+						<li>
+							<input id="work-{{ loop.index }}" type="checkbox" class="peer hidden" />
+							
+							<div class="relative aspect-square transform-style-3d transition-transform peer-checked:rotate-y-180">
+								<label for="work-{{ loop.index }}" class="absolute w-full h-full backface-hidden flex flex-col gap-2 cursor-pointer">
+									{% image work.image, "", [240, 360, 480, 640], "100vw (min-width:768px) 50vw", "h-0 flex-auto object-cover object-top" %}
+									
+									<h3 class="uppercase mb-3">
+										<span class="text-black text-shadow-outline-white">{{ work.client }}</span><br />
+										{{ work.title }}
+									</h3>
+								</label>
+
+								<div class="absolute w-full h-full backface-hidden rotate-y-180 border border-white p-2 flex flex-col">
+									<header class="px-2 py-1.5 bg-white text-black mb-8 uppercase flex">
+										<h3> 
+											{{ work.title }}
+										</h3>
+
+										<label for="work-{{ loop.index }}" class="ml-auto cursor-pointer">x</label>
+									</header>
+									
+									<div class="overflow-y-auto px-10 scrollbar-thin scrollbar-track-black scrollbar-thumb-white">
+										{{ work.text | safe }}
+									</div>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
 			</section>
 
 			<section
 				id="komplizen"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+				class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white bg-black p-2"
 			>
-				{% image "/img/pen.png", "", [288, 384, 512, 720, 1024], "80vw (min-width:1280px) 1024px", "absolute -top-24 left-[60%] -translate-x-1/2 rotate-[15deg]" %}
+				{% image "/img/pen.png", "", [288, 384, 512, 720, 1024], "80vw (min-width:1280px) 1024px", "absolute -top-8 md:-top-24 left-[60%] -translate-x-1/2 rotate-[15deg]" %}
 
-				<h2 class="text-md uppercase text-black text-shadow-outline-white">
+				<h2 class="text-md uppercase text-black text-shadow-outline-white mb-4">
 					Komplizen
 				</h2>
 
-				<div class="gallery">
-					{% image "/img/marco.png", "", [240, 360, 480, 640], "100vw", "" %}
-					{% image "/img/simon.png", "", [240, 360, 480, 640], "100vw", "" %}
-					{% image "/img/eric.png", "", [240, 360, 480, 640], "100vw", "" %}
-					{% image "/img/colin.png", "", [240, 360, 480, 640], "100vw", "" %}
-					{% image "/img/artue.png", "", [240, 360, 480, 640], "100vw", "" %}
-					{% image "/img/christian.png", "", [240, 360, 480, 640], "100vw", "" %}
+				<div 
+					x-data="{ 
+						slideCount: {{ teamMembers | length }}, 
+						currSlideIndex: 0, 
+						prevSlideIndex: 0,
+						goToSlide(index) {
+							this.prevSlideIndex = this.currSlideIndex;
+							this.currSlideIndex = index;
+
+							const forwardDistance = this.getSlideDistance(this.currSlideIndex, this.prevSlideIndex);
+							const backwardDistance = this.getSlideDistance(this.prevSlideIndex, this.currSlideIndex);
+							const forward = forwardDistance <= backwardDistance;
+							console.log(`${this.prevSlideIndex} -> ${this.currSlideIndex}: ${forward ? 'forward' : 'backward'}`); 
+						},
+						prevSlide() {
+							this.goToSlide((this.currSlideIndex - 1 + this.slideCount) % this.slideCount);
+						},
+						nextSlide() {
+							this.goToSlide((this.currSlideIndex + 1) % this.slideCount);
+						},
+						getSlideDistance(a, b) {
+							return ((a - b) + this.slideCount) % this.slideCount;
+						},
+						getSlideZIndex(slideIndex, currSlideIndex = this.currSlideIndex) {
+							return this.slideCount - ((slideIndex + this.slideCount - currSlideIndex) % this.slideCount);
+						},
+						getSlideClass(slideIndex) {			
+							const forwardDistance = this.getSlideDistance(this.currSlideIndex, this.prevSlideIndex);
+							const backwardDistance = this.getSlideDistance(this.prevSlideIndex, this.currSlideIndex);
+							const forward = forwardDistance <= backwardDistance;
+							const distance = forward ? forwardDistance : backwardDistance;
+
+							for (let i = 0; i < distance; i++) {
+								const index = (this.prevSlideIndex + (forward ? i : -i - 1) + this.slideCount) % this.slideCount;
+								if (index == slideIndex) {
+									return forward ? 'animate-stack-to-back' : 'animate-stack-to-front';
+								}
+							}
+
+							return '';
+						}
+					}"
+					class="flex justify-center items-center gap-8 md:gap-12"
+				>
+					<button class="z-10" @click="prevSlide()">
+						<img src="/img/arrow.svg" class="rotate-90" alt="&lt;" />
+					</button>
+
+					<ul class="grid justify-center">
+						{% for member in teamMembers %}
+							<li class="area-1 w-64 md:w-96" x-swipe:right="prevSlide()" x-swipe:left="nextSlide()">
+								<div 
+									class="relative z-[var(--z-index)]"
+									:class="getSlideClass({{ loop.index0 }})"
+									:style="{ 
+										'--prev-z-index': getSlideZIndex({{ loop.index0 }}, prevSlideIndex), 
+										'--z-index': getSlideZIndex({{ loop.index0 }}) }"
+								>
+									{% set style %}transform: rotate({{ member.rotation }}deg);{% endset %}
+									{% image member.image, "", [240, 360, 480, 640], "100vw", "shadow-black shadow-md", { style: style } %}
+								</div>
+
+								<div
+									class="mt-8 text-center opacity-0 transition-opacity duration-long"
+									:class="currSlideIndex == {{ loop.index0 }} ? '!opacity-100' : ''"
+								>
+									<h3 class="uppercase">
+										{{ member.name }}
+									</h3>
+									<p>{{ member.role }}</p>
+								</div>
+							</li>
+						{% endfor %}
+					</ul>
+				
+					<button class="z-10" @click="nextSlide()">
+						<img src="/img/arrow.svg" class="-rotate-90" alt="&gt;" />
+					</button>
 				</div>
 			</section>
 
 			<section
 				id="kontakt"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+				class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white bg-black"
 			>
 				<h2 class="text-md uppercase text-black text-shadow-outline-white">
 					Kontakt
@@ -141,14 +328,14 @@
 				</h3>
 
 				<form name="Kontakt" method="POST" action="#gesendet" data-netlify="true" class="grid">
-					<div class="grid gap-3 md:gap-5 xl:gap-7 grid-cols-2 sm:grid-cols-3">
+					<div class="grid gap-3 md:gap-5 lg:gap-7 grid-cols-2 md:grid-cols-3">
 						<input type="hidden" name="subject" value="Neue Nachricht von {Vorname} {Nachname} - hypefit.de">
 
 							<input
 								name="Vorname"
 								type="text"
 								placeholder="Vorname*"
-								required="required"
+								required
 								oninput="updateFormSubject(this.form)"
 								class="input"/>
 
@@ -164,7 +351,6 @@
 								name="Firma"
 								type="text"
 								placeholder="Firma"
-								required="required"
 								oninput="updateFormSubject(this.form)"
 								class="input"/>
 
@@ -172,11 +358,10 @@
 								name="Lieblingspasta"
 								type="text"
 								placeholder="Lieblingspasta"
-								required
 								oninput="updateFormSubject(this.form)"
 								class="input"/>
 
-							<input name="E-Mail" type="email" placeholder="E-Mail*" required="required" class="input col-span-full sm:col-auto"/>
+							<input name="E-Mail" type="email" placeholder="E-Mail*" required class="input col-span-full md:col-auto"/>
 
 							<textarea
 								name="Nachricht"
@@ -186,7 +371,7 @@
 								class="col-span-full input"></textarea>
 						</div>
 
-						<button type="submit" class="mt-3 md:mt-5 xl:mt-7">
+						<button type="submit" class="mt-3 md:mt-5 lg:mt-7">
 							Abschicken
 						</button>
 				</form>
@@ -198,7 +383,7 @@
 			
 			<section
 			id="impressum"
-			class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+			class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white bg-black"
 			>
 				{% image "/img/coffee-cup.png", "", [320], "320px", "absolute -top-44 -right-4" %}
 
@@ -208,7 +393,7 @@
 
 				<div class="border border-white px-2 py-12">
 					<div class="max-h-screen overflow-y-auto px-10 scrollbar-thin scrollbar-track-black scrollbar-thumb-white">
-					<p>
+						<p>
 						Cras bibendum ultricies lectus dui ipsum montes dapibus diam aliquam quisque. Risus sagittis pellentesque litora conubia posuere, vulputate leo sapien. Ac cubilia auctor porttitor tempus ultrices nulla habitant lectus venenatis dictum blandit bibendum. Aliquam aliquam sit eros imperdiet augue. Auctor, amet sociosqu est felis tellus mattis maecenas elit turpis eget dapibus. Aenean tortor lacus ante lacinia amet nostra natoque. Tristique.
 						</p>
 						<p>
@@ -274,7 +459,7 @@
 
 			<section
 				id="datenschutz"
-				class="relative max-w-screen-xl min-h-screen mx-auto px-2 sm:px-4 md:px-6 lg:px-10 py-4 border-t border-t-white bg-black"
+				class="relative max-w-screen-lg min-h-screen mx-auto my-8 border-t border-t-white bg-black"
 			>
 				<h2 class="text-md uppercase text-black text-shadow-outline-white">
 					Datenschutz
@@ -347,8 +532,14 @@
 			</section>
 		</main>
 
-		<footer></footer>
+		<footer class="relative max-w-screen-lg mx-auto my-8 uppercase text-center border-t border-white">
+			&copy; Copyright Burgard&Komplizen 2024 | Marco Burgard | Daimlerstrasse 3, 66130 Güdingen
+		</footer>
 
+		<script src="data:text/javascript;base64,KGZ1bmN0aW9uKCl7ZG9jdW1lbnQuZG9jdW1lbnRFbGVtZW50LmNsYXNzTGlzdC5hZGQoImpzIik7fSgpKQ=="></script>
+		<script src="https://unpkg.com/alpinejs-swipe"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<script src="/js/coffee-cup.js"></script>
+		<script src="/js/forms.js"></script>
 	</body>
 </html>
