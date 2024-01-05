@@ -11,6 +11,7 @@ module.exports = {
 		},
 		colors: {
 			black: "#000000",
+			grey: "#393b3e",
 			transparent: "transparent",
 			white: "#ffffff",
 		},
@@ -18,12 +19,19 @@ module.exports = {
 			DEFAULT: "acumin-pro-wide",
 		},
 		fontSize: {
-			DEFAULT: "1rem",
-			sm: "1.25rem",
-			md: "1.5rem",
-			lg: "3rem",
-			xl: "4.5rem",
-			xxl: "18rem",
+			DEFAULT: "1rem", // 16px
+			md: "1.125rem", // 18px
+			lg: "1.375rem", // 22px
+			xl: "4.5rem", // 72px
+			"md@md": "1.25rem", // 20px
+			"lg@md": "1.75rem", // 28px"
+			"xl@md": "10rem", // 160px
+			"xl@lg": "13.75rem", // 220px
+			// sm: "1.25rem", // 20px
+			// md: "1.5rem", // 24px
+			// lg: "3rem", // 48px
+			// xl: "4.5rem", // 72px
+			// xxl: "13.75rem", // 220px
 		},
 		keyframes: {
 			"stack-to-front": {
@@ -38,14 +46,9 @@ module.exports = {
 			},
 		},
 		screens: {
+			sm: "480px",
 			md: "768px",
 			lg: "1280px",
-		},
-		textShadow: {
-			["outline-white"]:
-				"-1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff",
-			["outline-white-transparent"]:
-				"-1px -1px 0 rgba(255,255,255,0.175), 1px -1px 0 rgba(255,255,255,0.175), -1px 1px 0 rgba(255,255,255,0.175), 1px 1px 0 rgba(255,255,255,0.175)",
 		},
 		transitionDuration: {
 			DEFAULT: "300ms",
@@ -60,6 +63,5 @@ module.exports = {
 		require("tailwind-scrollbar"),
 		require("tailwindcss-3d"),
 		require("tailwindcss-noscript"),
-		require("tailwindcss-textshadow"),
 	],
 };

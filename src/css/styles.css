@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@supports (animation-range: entry-crossing) {
+	.fit-to-width {
+		font-size: 25rem !important;
+		overflow: hidden;
+		scroll-snap-type: both mandatory;
+		& > * {
+			inline-size: max-content;
+			transform-origin: 0 0;
+			animation: apply-text-ratio linear;
+			animation-timeline: view(inline);
+			animation-range: entry-crossing;
+
+			display: block;
+			scroll-snap-align: start;
+			contain: layout;
+		}
+	}
+}
+
+@keyframes apply-text-ratio {
+	from {
+		transform: scale(0);
+		margin-block-end: -1lh;
+	}
+}
+
+@layer utilities {
+	.text-stroke {
+		--tw-text-stroke-width: 1px;
+		-webkit-text-stroke: var(--tw-text-stroke-width) var(--tw-text-stroke-color);
+	}
+
+	.text-stroke-3 {
+		--tw-text-stroke-width: 3px;
+	}
+
+	.text-stroke-white {
+		--tw-text-stroke-color: #ffffff;
+	}
+
+	.text-stroke-white-transparent {
+		--tw-text-stroke-color: #ffffff33;
+	}
+}

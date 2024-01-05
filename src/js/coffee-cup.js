@@ -12,7 +12,7 @@ const preloadImages = () => {
 	}
 };
 
-window.addEventListener("scroll", () => {
+const updateCoffeeCup = () => {
 	const maxScrollTop = window.innerHeight - 50;
 	const scrollFraction = html.scrollTop / maxScrollTop;
 	const frameIndex = Math.min(
@@ -22,9 +22,13 @@ window.addEventListener("scroll", () => {
 
 	requestAnimationFrame(() => {
 		img.src = currentFrame(frameIndex);
-		img.style.top = `${50 - scrollFraction * 50}%`;
+		const factor = 20 + scrollFraction * 50;
+		img.style.top = `${50 - scrollFraction * factor}%`;
 	});
-});
+};
+
+window.addEventListener("scroll", updateCoffeeCup);
 
 img.src = currentFrame(0);
 preloadImages();
+updateCoffeeCup();

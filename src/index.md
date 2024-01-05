@@ -4,19 +4,19 @@ teamMembers:
   - name: Marco Burgard
     role: CEO
     image: /img/marco.png
-    rotation: -7
+    rotation: -4
   - name: Simon
     role: blank
     image: /img/simon.png
-    rotation: -1
+    rotation: 3
   - name: Eric
     role: blank
     image: /img/eric.png
-    rotation: 5
+    rotation: 6
   - name: Colin
     role: blank
     image: /img/colin.png
-    rotation: 2
+    rotation: -3
   - name: Artue
     role: blank
     rotation: 10
@@ -24,7 +24,7 @@ teamMembers:
   - name: Christian Neurohr
     role: blank
     image: /img/christian.png
-    rotation: -3
+    rotation: 2
 works:
   - title: HypeFit Markenaufbau
     client: RTS Fitness
